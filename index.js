@@ -3,14 +3,19 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 const chalk = require('chalk');
 
+const generateMarkdown = require("./generateMarkdown");
+
 console.clear();
 console.log("");
-console.log(chalk.bold.yellow(`      Running the readMe Generator by Walter Hoerman...`));
+console.log(chalk.bold.bgGreen(`      Running the readMe Generator by Walter Hoerman...      `));
 
 console.log("");
 console.log(chalk.magenta.bold(`      A Good readMe is very important to tell your users what your project is all about.`));
 console.log(chalk.magenta.bold(`      Running this program will generate a readMe in MarkDown and write it to a file.`));
 console.log(chalk.magenta.bold(`      You can then edit the wording in your own editor for a final product.`));
+console.log("");
+console.log(chalk.red.bold(`      For many questions, a default answer has been provided for your convienience.`));
+console.log(chalk.red.bold(`      Hit enter to use the defaualt - Start typing and it disappears!`));
 
 function checkName() {
   return inquirer.prompt([{
@@ -93,7 +98,6 @@ function secondQuestions(prevResults) {
   return inquirer.prompt([{
       type: "input",
       message: `
-
       What is your position on this project? (developer, coder, etc)
       `,
       name: "position"
@@ -124,8 +128,18 @@ function secondQuestions(prevResults) {
       message: `
       What are the steps required to install your project? 
       Provide a step-by-step description of how to get the development environment running.
+      (Reminder: this ia a CLI so it has to be all on one line! You can edit it later yourself...)
       `,
       name: "projectInstallation"
+    },
+    {
+      type: "input",
+      message: `
+      What is the process required to use your project? 
+      Provide a description of how the user can interact with the program and the results.
+      (Again, remember this has to be all one line!)
+      `,
+      name: "projectUsage"
     },
   ]).then(function (newResults) {
     let combineResults = {
@@ -198,18 +212,73 @@ function thirdQuestions(combineResults5) {
     message: `
       Please describe any testing that you have developed for your application."
     `,
-    name: "testing"
+    name: "testing",
+    default: "A this time, no testing has been built for this application, either due to level of complexity or resources. If, in the future,  complexity or dependability warrants it, we would welcome help developing testing."
   },
   {
     type: "input",
     message: `
       Please describe any licensing you desire your application."
     `,
-    name: "license"
+    name: "license",
+    default: "No licensing is currently used for this application."
+  },
+  {
+    type: "input",
+    message: `
+      Name any badges you have for your project."
+    `,
+    name: "badges",
+    default: "there are currently no badges associated with this application."
+  },
+  {
+    type: "input",
+    message: `
+      Are there any instructions for someone who would like to contribute to your project?"
+    `,
+    name: "contributing",
+    dafault: "We would welcome help in developing this application. Please contact us if you are interested"
   },
 ]).then(function (thirdQinfo) {
-    let finalData = { ...combineResults6, ...thirdQinfo };
-    console.log(finalData);
+    finaldata = { ...combineResults6, ...thirdQinfo };
+    lastQuestion(finaldata);
   })
   
+}
+
+function lastQuestion(finaldata2) {
+  console.log("");
+  console.log(chalk.bold.green(`      Congratulations! i have all the information I need!`));
+  console.log("");
+  console.log(chalk.bold.green(`      I would now like to generate the readMe for you to view and edit.`));
+  console.log(chalk.bold.green(`      I will save it to a file named readMe.md.`));
+  console.log(chalk.bold.green(`      I will also display the markdown language on the screen.`));
+return inquirer.prompt([
+  {
+    type: "confirm",
+    message: `
+      Would you like me to proceed?
+    `,
+    name: "yesFinal"
+  }
+]).then(function (lastQ) {
+  console.clear();
+  let finaldata2 = { ...finaldata, ...lastQ };
+  console.clear();
+  console.log("");
+  console.log(chalk.bold.bgGreen(`      Here is your markdown page for ${finaldata.projectTitle}!         `));
+  console.log("");
+  let markDownPage = generateMarkdown(finaldata);
+  console.log(markDownPage);
+
+  fs.writeFile("readMe.md", markDownPage, function(err) {
+
+    if (err) {
+      return console.log(err);
+    }
+  
+    console.log(chalk.bold.bgGreen(`      The readMe file for ${finaldata.projectTitle} should be in this folder!         `));
+  
+  });
+})
 }
