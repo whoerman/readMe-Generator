@@ -4,6 +4,8 @@ function generateMarkdown(finaldata) {
   This project was developed by ${finaldata.name} of ${finaldata.location}
   ${finaldata.picture}
 
+  ![headshot](${finaldata.picture} "headshot")
+
   ## Description 
   
   ${finaldata.projectDescription}

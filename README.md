@@ -1,13 +1,15 @@
-# readme
+# dfg
 
   This project was developed by Walter Hoerman of Portsmouth, NH
   https://avatars2.githubusercontent.com/u/57150284?v=4
 
+  ![headshot](https://avatars2.githubusercontent.com/u/57150284?v=4 "headshot")
+
   ## Description 
   
-  generates a readme
+  hhhh
   
-  As a coder, I developed this project because help the world,
+  As a dev, I developed this project because gggg,
   
   
   ## Table of Contents 
@@ -20,17 +22,17 @@
   
   ## Installation
   
-  run npm install
+  fff
   
   
   ## Usage 
   
-  answer the questions
+  fff
   
   ## Credits
   
-  Abby Hoerman
-  ahoerman
+  fff
+  ddd
   
   ## License
   
