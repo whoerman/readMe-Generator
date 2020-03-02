@@ -1,15 +1,14 @@
-# dfg
+# CLI based readMe Generator
 
   This project was developed by Walter Hoerman of Portsmouth, NH
-  https://avatars2.githubusercontent.com/u/57150284?v=4
 
   ![headshot](https://avatars2.githubusercontent.com/u/57150284?v=4 "headshot")
 
   ## Description 
   
-  hhhh
+  A CLI list of questions are used to gather info to generate a readME in markdown
   
-  As a dev, I developed this project because gggg,
+  As a Developer, I developed this project because a good readMe is vital for any project to describe an application to the public. It is often difficult to generate from scratch, and this program is deisgned to help.,
   
   
   ## Table of Contents 
@@ -22,31 +21,37 @@
   
   ## Installation
   
-  fff
+  run npm install within the folder to install the inquirer adn chalk
   
   
   ## Usage 
   
-  fff
+  It is a very simple program. It is run from the command line and intiated by typing node index
   
   ## Credits
   
-  fff
-  ddd
+  I would like the thank Abigail Hoerman (Gitname: ahoerman) for help with this project.
   
   ## License
   
   No licensing is currently used for this application.
-  
+
   ---
 
   ## Badges
   
-  there are currently no badges associated with this application.
+![followers badge](https://img.shields.io/badge/Followers-5-blue "followers badge")
+
+![ID badge](https://img.shields.io/badge/Git%20ID-57150284-red "IDbadge")
+
+
+
+
+
   
   ## Contributing
   
-  undefined
+  We welcome any contributora. Please feel free to contact us.
 
   ## Tests
   

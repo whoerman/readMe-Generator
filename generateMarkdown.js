@@ -2,7 +2,6 @@ function generateMarkdown(finaldata) {
   return `# ${finaldata.projectTitle}
 
   This project was developed by ${finaldata.name} of ${finaldata.location}
-  ${finaldata.picture}
 
   ![headshot](${finaldata.picture} "headshot")
 
@@ -32,22 +31,28 @@ function generateMarkdown(finaldata) {
   
   ## Credits
   
-  ${finaldata.CollabName}
-  ${finaldata.CollabGit}
+  I would like the thank ${finaldata.CollabName} (Gitname: ${finaldata.CollabGit}) for help with this project.
   
   ## License
   
   ${finaldata.license}
-  
+
   ---
 
   ## Badges
   
-  ${finaldata.badges}
+![followers badge](https://img.shields.io/badge/Followers-${finaldata.followers}-blue "followers badge")
+
+![ID badge](https://img.shields.io/badge/Git%20ID-${finaldata.id}-red "IDbadge")
+
+
+
+
+
   
   ## Contributing
   
-  ${finaldata.contibuting}
+  ${finaldata.contribute}
 
   ## Tests
   

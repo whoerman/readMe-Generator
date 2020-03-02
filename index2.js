@@ -51,16 +51,12 @@ function checkName() {
         let location = result.data.location;
         let userPicURL = result.data.avatar_url;
         let userBio = result.data.bio;
-        let followers = result.data.followers;
-        let id = result.data.id;
         let gitInfo = {
           "name": userGitName,
           "location": location,
           "picture": userPicURL,
           "company": userCompany,
-          "bio": userBio,
-          "followers": followers,
-          "id" : id
+          "bio": userBio
         }
 
         let userEmail = result.data.email;
@@ -241,7 +237,7 @@ function thirdQuestions(combineResults5) {
       Are there any instructions for someone who would like to contribute to your project?"
     `,
     name: "contribute",
-    dafault: "We would welcome help in developing this application. Please contact us if you are interested"
+    default: "We would welcome help in developing this application. Please contact us if you are interested"
   },
 ]).then(function (thirdQinfo) {
     finaldata = { ...combineResults6, ...thirdQinfo };
